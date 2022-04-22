@@ -7,10 +7,6 @@ ninja_belts = {'yellow': BeltStats(50, 11),
                'green': BeltStats(175, 1),
                'blue': BeltStats(250, 5)}
 
-for belt in ninja_belts.values():
-    score = belt.score * belt.ninjas
-    print(score)
-
 def get_total_points(belts=ninja_belts):
     """Calculate the amount of points rewarded on PyBites given the
        ninja_belts dictionary, formula: belt score x belt owners (aka ninjas)
@@ -25,4 +21,10 @@ def get_total_points(belts=ninja_belts):
        them all over the place!)
 
        Return the total number of points int from the function."""
-    pass
+    total = 0
+    for belt in belts.values():
+        score = belt.score * belt.ninjas
+        total = total + score
+    return total
+
+print(get_total_points())
